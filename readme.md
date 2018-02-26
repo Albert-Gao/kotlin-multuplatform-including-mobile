@@ -12,8 +12,8 @@ This setup is aiming to solve the problem, where we want to write the platform s
 
 ## Folders
 
-- Android: Android project built by Android Studio
-- iOS: iOS Project built by XCode
+- android: Android project built by Android Studio
+- ios: iOS Project built by XCode
 - jvmApp: jvm app which consumes the lib
 - jsApp: js app on how to consume the lib
 - common: The shared code that is meant to be across all platforms without any change.
