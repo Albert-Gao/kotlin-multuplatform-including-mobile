@@ -1,0 +1,36 @@
+//import com.google.javascript.jscomp.CompilerOptions
+
+plugins {
+    id "com.eriwen.gradle.js" version "2.14.1"
+}
+
+apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-dce-js'
+
+dependencies {
+    compile project(':platforms-js')
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+sourceSets {
+    main.kotlin.srcDirs += './'
+}
+
+[compileKotlin2Js, compileTestKotlin2Js]*.configure {
+    kotlinOptions.moduleKind = "umd"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.sourceMapEmbedSources = "always"
+}
+
+combineJs {
+    source = [
+            // The order is important. That's why the documented way with a reference to a source set using wildcards
+            // is not used.
+            "${buildDir}/kotlin-js-min/main/kotlin.js",
+            "${buildDir}/kotlin-js-min/main/platforms-js.js",
+            "${buildDir}/kotlin-js-min/main/jsApp.js"
+    ]
+    dest = file("${temporaryDir}/${archivesBaseName}-combined.js")
+}
+
+combineJs.dependsOn runDceKotlinJs
