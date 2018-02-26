@@ -1,4 +1,6 @@
-# Kotlin Native mobile multiplatform example
+# Kotlin multi-platform boilerplate including mobile
+
+There is a mobile only version in this [repo](https://github.com/Albert-Gao/kotlin-native-mobile-multiplatform-example)
 
 Read my [blog](http://www.albertgao.xyz/2018/02/22/use-kotlin-to-share-native-code-between-ios-and-android/) if you want more details:
 
@@ -12,15 +14,13 @@ This setup is aiming to solve the problem, where we want to write the platform s
 
 - Android: Android project built by Android Studio
 - iOS: iOS Project built by XCode
-- Shared: Kotlin Native code which will be shared across iOS and Android
-
-## About the shared folder
-
-The shared code is in the `Shared` folder.
-
-- common: The common code
-- android: Some platform specific code for android, which will be included in the android folder
-- ios: Some platform specific code for iOS, it will be compiled as an iOS framework
+- jvmApp: jvm app which consumes the lib
+- jsApp: js app on how to consume the lib
+- common: The shared code that is meant to be across all platforms without any change.
+- platforms: platform specific implementation which will be compiled with `common`
+    - ios: it will be compiled as an iOS framework
+    - js
+    - jvm: a dependency for both `android app` and `jvmApp`
 
 ## Workflow:
 
