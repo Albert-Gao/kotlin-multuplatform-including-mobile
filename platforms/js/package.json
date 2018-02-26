@@ -1,0 +1,12 @@
+{
+  "name": "kotlin-multuplatform-including-mobile",
+  "description": "kotlin-multuplatform-including-mobile",
+  "repository": "https://github.com/Albert-Gao/kotlin-multuplatform-including-mobile",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.3"
+  }
+}
